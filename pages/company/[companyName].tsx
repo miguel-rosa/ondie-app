@@ -23,9 +23,9 @@ export async function getStaticProps({params} : {params: {companyName: string}})
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { companyName: 'test' } },
+      { params: { companyName: 'summer-hill-modas' } },
     ],
-    fallback: true,
+    fallback: false,
   }
 }
 
