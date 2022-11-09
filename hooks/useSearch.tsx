@@ -9,7 +9,7 @@ type SearchContextType = {
 
 export const SearchContext = createContext({} as SearchContextType);
 
-export const SearchStorage:FC = ({ children }) => {
+export const SearchStorage:React.FC<any> = ({ children }) => {
   const [textSearch, setTextSearch] = useState("");
   const [categorySearch, setCategorySearch] = useState("");
   return (

@@ -20,7 +20,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({posts}) {
+export default function Home({posts}: {posts: {id: string, name: string, slug: string, logo:string}[]}) {
   console.log('posts', posts)
   const {textSearch} = useSearch();
   return (

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import Image from 'next/image'
 import Header from '../../components/Header'
@@ -7,7 +6,7 @@ import styles from '../../styles/Home.module.css'
 import { parseProperties } from '../../utils/parse-properties';
 import { getCompanyByName } from '../api/getCompanyBySlug';
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params} : {params: {companyName: string}}) {
   console.log('params', params)
   const name = params?.companyName;
   const database = await getCompanyByName({name});
@@ -30,7 +29,7 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Home({company}) {
+export default function Home({company} : {company: {name: string, id: string }}) {
   console.log('company', company)
   console.log('company Name', company?.name)
   return (

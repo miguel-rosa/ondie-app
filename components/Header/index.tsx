@@ -1,5 +1,5 @@
-import { FC, useContext } from 'react';
-import { FaWhatsapp, FiShoppingCart} from "react-icons/fa"
+import { FC } from 'react';
+import { FaWhatsapp } from "react-icons/fa"
 import { MdClose, MdSearch } from "react-icons/md"
 
 import styles from "./Header.module.css";
