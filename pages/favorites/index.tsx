@@ -6,25 +6,9 @@ import Place from '../../components/Place';
 import useFavorites from '../../hooks/useFavorites';
 import useSearch from '../../hooks/useSearch';
 import styles from '../../styles/Home.module.css'
-import { parsePlaces } from '../../utils/parsePlaces';
-import stringSearch from '../../utils/stringSearch';
-import { getCategories } from '../api/getCategories';
-import { getCompanies } from '../api/getCompanies';
 
 
-export async function getStaticProps() {
-  const companies = await getCompanies();
-  // console.log('database')
-  const posts = parsePlaces(companies);
-
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
-export default function Home({posts}: {posts: {id: string, name: string, slug: string, logo:string}[]}) {
+export default function Home() {
   // console.log('posts', posts)
   const {textSearch} = useSearch();
   const { favorites} = useFavorites();
