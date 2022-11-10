@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { FaWhatsapp } from "react-icons/fa"
+import { HiOutlineBookmark } from "react-icons/hi"
 import { MdClose, MdSearch } from "react-icons/md"
 
 import styles from "./Header.module.css";
@@ -21,12 +21,13 @@ const Header:FC<HeaderProps> = () => {
         {textSearch ? <MdClose size="24" color="#908e8e" onClick={() => setTextSearch("")}/> : <MdSearch size="24" color="#908e8e" />}
         <input onChange={(event) => setTextSearch(event.target.value)} value={textSearch} className={styles.input} type="text" placeholder="Empresa"/>
       </div>
-      <button
+      <Link
         className={styles.button}
+        href="/favorites"
       >
-        <FaWhatsapp/>
-    Contato
-      </button>
+        <HiOutlineBookmark size={23} />
+    Favoritos
+      </Link>
 
     </header>
   );

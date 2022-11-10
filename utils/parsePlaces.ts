@@ -1,12 +1,9 @@
 
-// import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
 
-export type Post = {
-  id: string;
-  title: string;
-};
+import { Place } from "../types/Place";
 
-export const parseProperties = (database: any): Post[] => {
+export const parsePlaces = (database: QueryDatabaseResponse): Place[] => {
   console.log('database.results', database.results)
   return database.results.map((row:any) => {
     console.log('FILE ==========>', row.properties.logo?.files?.[0]?.file)
@@ -15,6 +12,7 @@ export const parseProperties = (database: any): Post[] => {
     const phone = row.properties.Phone.rich_text?.[0]?.plain_text ?? null;
     const slug = row.properties.slug.rich_text?.[0]?.plain_text ?? null;
     const logo = row.properties.logo?.files?.[0]?.file?.url ?? null;
-    return { id, name, phone, slug, logo };
+    const category = row.properties.category.rich_text?.[0]?.plain_text ?? null;
+    return { id, name, phone, slug, logo, category };
   });
 }
