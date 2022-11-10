@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../../components/Header'
 import styles from '../../styles/Home.module.css'
-import { parseProperties } from '../../utils/parsePlaces';
+import { parsePlaces } from '../../utils/parsePlaces';
 import { getCompanyByName } from '../api/getCompanyBySlug';
 
 export async function getStaticProps({params} : {params: {companyName: string}}) {
@@ -13,7 +13,7 @@ export async function getStaticProps({params} : {params: {companyName: string}})
   const database = await getCompanyByName({name});
   console.log('database', database)
 
-  const company = parseProperties(database)[0];
+  const company = parsePlaces(database)[0];
 
   return {
     props: {
